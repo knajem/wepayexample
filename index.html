@@ -1,0 +1,92 @@
+<html>
+<head>
+
+<script src="https://cdn.wepay.com/wepay.min.js"></script>
+<script>
+
+addEventListener('load', (event) => {
+
+var custom_style = {
+  'styles': {
+     'base': {
+        'color': 'grey',
+        'border': '1px solid grey',
+        'border-top': 'none',
+        'border-right': 'none',
+        'border-left': 'none',
+        'font-weight': '200',
+        'font-family': 'Arial',
+        'padding': '0px',
+        'margin-bottom': '5px',
+        ':focus': {
+            'border': '2px solid #4db6ac',
+            'border-top': 'none',
+            'border-right': 'none',
+            'border-left': 'none'
+        },
+        '::placeholder': {
+             'text-transform': 'lowercase',
+             'color': '#D3D3D3',
+              'font-size': '17px'
+        }
+     },
+     'invalid': {
+        'color': '#CD5C5C',
+        'border-color': '#CD5C5C'
+     },
+     'valid': {
+        'color': '#4db6ac',
+        'border-color': '#4db6ac'
+     },
+     'labels': {
+        'base': {
+          'color': 'gray',
+          'font-family': 'Arial',
+          'font-size': '13px',
+					'font-weight': '1',
+          'text-transform': 'lowercase',
+          'padding': '0px',
+					'padding-left': '0px'
+        }
+     },
+     'errors': {
+        'invalid': {
+          'color': '#CD5C5C'
+        }
+     }
+   }
+};
+var options = {
+  custom_style:custom_style,
+  show_labels:true,
+  show_placeholders:true,
+  show_error_messages:true,
+  show_error_messages_when_unfocused:true
+};
+
+//credit card iframe configs
+var myAppId = '410623';
+var apiVersion = "3.0";
+var error = WePay.configure("stage", myAppId, apiVersion);
+if (error) {
+  console.log(error);
+}
+
+var iframe_container_id = "credit_card_iframe";
+var creditCard = WePay.createCreditCardIframe(iframe_container_id, options);
+
+
+});
+
+// credit card iframe styling
+
+
+
+</script>
+</head>
+<body>
+          <div id="credit_card_iframe"></div>
+            </div>
+           
+</body>
+</html>
